@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //클로저를 이용한 setter만들기
+        function obj(){
+            var name = 'charlie'
+
+            return function(aaa){
+                name = aaa;
+                return name;
+            }
+        }
+
+        var result = obj();
+        console.log(result('lola'));
+
+
+        
+        //getter setter 만들기
+
+        function person(){
+            var name = 'charlie';
+            return {'setName': function(aaa){
+                    name = aaa;
+                }, 
+                'getName': function(){
+                    return name;
+                }
+            };
+        }
+        
+        var obj = person();
+        obj.setName('lauren');
+        console.log(obj.getName());
+
+    </script>
+</body>
+</html>
