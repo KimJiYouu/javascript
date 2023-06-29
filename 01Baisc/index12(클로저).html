@@ -38,7 +38,8 @@
         }
         func4();
 
-        //클로저 - 내부함수의 렉시컬 스코프를 이요해서 외부에서 변수 a를 접근할 수 있는 환경을 만들어준다.
+        //클로저 - 내부함수의 렉시컬 스코프를 이요해서 외부에서 변수 a에 접근할 수 있는 환경을 만들어준다.
+      
         function example(){
             var a = 1;
 
@@ -87,10 +88,10 @@
             }
         }
         var x = compute();
-        console.log(x());
-        console.log(x());
-        console.log(x());
-        console.log(x());
+        console.log(x()); //1
+        console.log(x()); //2
+        console.log(x()); //3
+        console.log(x()); //4
         console.log(x());
         console.log(x());
         console.log(x());

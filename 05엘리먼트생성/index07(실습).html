@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>할일 목록 만들기</h2>
+   
+        <h3 class="hello"></h3>
+        <input type="text" id="first" placeholder="이름을 입력하세요">
+        <button id="btn">확인</button><br>
+        <input type="text" id="second" placeholder="당신의 할일을 적으세요">
+        <button id="btn2">확인</button>
+
+        <ul class="list"></ul>
+   
+
+    <script>
+        var btn = document.getElementById("btn");
+        var first = document.getElementById("first");
+        var hello = document.querySelector(".hello");
+
+        var btn2 = document.getElementById("btn2");
+        var second = document.getElementById("second");
+        var list = document.querySelector(".list");
+
+        btn.onclick = function() {
+            first.style.display = "none";
+            btn.style.display = "none";
+            hello.innerHTML = first.value + '님 안녕하세요';
+            
+        }
+
+        btn2.onclick = function() {
+           
+            var li = document.createElement("li");
+            var text = document.createTextNode(second.value+" ");
+            var x = document.createElement('button');
+            x.innerHTML = 'X';
+            x.id = 'x';
+            var up = document.createElement('button');
+            up.innerHTML = '↑';
+            var down = document.createElement('button');
+            down.innerHTML = '↓';
+
+            li.appendChild(text);
+            li.appendChild(x);
+            li.appendChild(up);
+            li.appendChild(down);
+            list.appendChild(li);
+            second.value = "";
+
+           
+            x.onclick = function() {
+                x.parentElement.remove();
+            }
+
+            up.onclick = function() {
+
+                var current = up.parentElement;
+                var prev = current.previousElementSibling;
+
+                if(prev !== null) {
+
+                    if(confirm('위로 이동하시겠습니까?')) {
+                        list.insertBefore(current, prev);
+                    }
+                    
+                } else {
+                    return;
+                }
+            }
+
+            down.onclick = function() {
+                var current = down.parentElement;
+                var next = current.nextElementSibling;
+
+                if(next !== null) {
+                    if(confirm('아래로 이동하시겠습니까?')) {
+                        list.insertBefore(next, current);
+                    }
+                } else {
+                    return;
+                }
+            }
+        }
+
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>(select에서 value속성은 선택된 값을 의미합니다)</p>
+    <p>change이벤트</p>
+    
+    <h2 id="title">단어를 선택하세요</h2>
+
+	
+    <select id="selector">
+        <option value="단어를 선택하세요">선택</option>  <!-- value 값이 없으면 option태그 사이의 값이 value가 됨 -->
+        <option value="영어입니다">hello</option>
+        <option value="한국어입니다">안녕하세요</option>
+        <option value="중국어입니다.">尼河吳</option>
+    </select>
+
+    <script>
+     var title = document.getElementById("title");
+     var sel = document.getElementById("selector");
+
+     sel.onchange = function() {
+        title.innerHTML = sel.value;
+     }
+
+    </script>
+
+<h2 id="title2">단어를 선택하세요</h2>
+
+	
+<select id="selector2">
+    <option>선택</option> 
+    <option>hello</option>
+    <option>안녕하세요</option>
+    <option>尼河吳</option>
+</select>
+
+<script>
+    var title2 = document.getElementById("title2");
+    var sel2 = document.getElementById("selector2");
+    sel.addEventListener('change', function(){
+        if(sel2.value === '선택') {
+            title2.innerHTML = '단어를 선택하세요';
+        } else if (sel2.value === 'hello') {
+            title2.innerHTML = '영어입니다';
+        } else if (sel2.value === '안녕하세요') {
+            title2.innerHTML = '한국어입니다';
+        } else {
+            title2.innerHTML = '중국어입니다';
+        }
+    });
+</script>
+</body>
+</html>

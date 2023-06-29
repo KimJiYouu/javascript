@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p class="title"></p>
+
+    <ul class="box">
+        <li>1. Charile</li>
+        <li>2. Lola</li>
+        <li>3. Lauren</li>
+        <li>4. Don</li>
+        <li>5. Mina</li>
+    </ul>
+
+    <script>
+        var title = document.querySelector(".title");
+        var box = document.querySelector(".box"); //ul
+        box.onclick = function() {
+            //console.log("이벤트위임");
+            //console.log(event.target); //이벤트가 동작한 태그
+            //console.log(event.currentTarget); //실제로 이벤트가 걸려있는 태그
+            //console.log(this); //ul
+
+            //console.dir(event.target.tagName); //이벤트가 동작한 태그명
+
+            if(event.target.tagName != "LI") { //li가 아닌 ul부분을 클릭해도 동작하지 않도록 하는 작업/ tagName은 대문자
+                return;
+            }
+
+            title.innerHTML = event.target.innerHTML;
+        }
+    </script>
+    
+</body>
+</html>
