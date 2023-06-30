@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .bgImg {animation: fadeIn .5s ease-in-out;}
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                /* margin-left: -100%; */
+            } to {
+                opacity: 1;
+                /* margin-left: 0; */
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 애니메이션이 새롭게 적용되려면 img태그를 새롭게 생성 -->
+    <div class="d">
+        <img src="img/slide1.jpg" class="bgImg">
+    </div>
+
+    <script>
+        var d = document.querySelector('.d');
+        setInterval(function() {
+            d.removeChild(document.querySelector('.bgImg'));
+            var imgg = document.createElement('img');
+            imgg.src = "img/slide2.jpg";
+            imgg.classList.add('bgImg');
+            d.appendChild(imgg);
+             console.log(imgg);
+        }, 2000);
+
+        setInterval(function() {
+            d.removeChild(document.querySelector('.bgImg'));
+            var imgg = document.createElement('img');
+            imgg.src = "img/slide3.jpg";
+            imgg.classList.add('bgImg');
+            d.appendChild(imgg);
+             console.log(imgg);
+        }, 4000);
+
+        setInterval(function() {
+            d.removeChild(document.querySelector('.bgImg'));
+            var imgg = document.createElement('img');
+            imgg.src = "img/slide4.jpg";
+            imgg.classList.add('bgImg');
+            d.appendChild(imgg);
+             console.log(imgg);
+        }, 6000);
+
+        setInterval(function() {
+            d.removeChild(document.querySelector('.bgImg'));
+            var imgg = document.createElement('img');
+            imgg.src = "img/slide1.jpg";
+            imgg.classList.add('bgImg');
+            d.appendChild(imgg);
+             console.log(imgg);
+        }, 8000);
+
+    </script>
+</body>
+</html>
