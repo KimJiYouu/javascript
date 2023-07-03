@@ -43,7 +43,7 @@
         setInterval(tiktok, 1000);
         function tiktok() {
             var clock = document.querySelector(".clock");
-            var time = clock.querySelector("h2");
+            var time = clock.querySelector(".clock > h2");
             var date = new Date();
             var hour = date.getHours();
             var minute = date.getMinutes();
@@ -61,7 +61,7 @@
             time.innerHTML = hour + ":" + minute + ":" + second; 
         }
 
-        setInterval(slide, 3000);
+        setInterval(slide, 10000);
         var num = 2;
         function slide() {
             var body = document.body;
@@ -77,11 +77,12 @@
             body.appendChild(createImg);
             
             num++;
-            if(num == 4) {
+            if(num == Object.keys(obj).length) { //Object.keys(객체).length : 객체의 길이 구하는 법
                 num = 1;
             }
 
         }
+      
     </script>
 
 </body>
